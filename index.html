@@ -141,22 +141,11 @@ footer p{margin:0;padding:18px 0}
   <noscript><p class="error">Esta página necesita JavaScript para mostrar el itinerario.</p></noscript>
 </main>
 
-<footer><div class="wrap"><p>Los datos se leen de la base cada vez que abrís la página.</p></div></footer>
+<footer><div class="wrap"><p>Itinerario del viaje a Colombia.</p></div></footer>
 
+<script src="datos.js"></script>
 <script>
 (() => {
-  const API = 'https://bwzurjyweyfkwinhdykm.supabase.co/rest/v1';
-  const KEY = 'sb_publishable_Me-ZS9s_xryLpPbRY_kbnw_RZcoaybw';
-  const CACHE = 'sudaca-viaje-v1';
-  const TABLAS = {
-    config: 'viaje_config?select=*',
-    personas: 'viaje_personas?select=*&order=orden',
-    dias: 'viaje_dias?select=*&order=fecha',
-    eventos: 'viaje_eventos?select=*&order=fecha,orden',
-    reservas: 'viaje_reservas?select=*&order=orden',
-    pendientes: 'viaje_pendientes?select=*&order=orden'
-  };
-
   const $ = id => document.getElementById(id);
   const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
@@ -182,17 +171,6 @@ footer p{margin:0;padding:18px 0}
   };
   const TIPOS = {vuelo:'Vuelo', bus:'Bus', hotel:'Alojamiento', partido:'Partido', vip:'Sala VIP', traslado:'Traslado', nota:'Nota'};
   const ESTADOS = {'a confirmar':'A confirmar', 'pendiente':'Sin resolver'};
-
-  async function cargar() {
-    const claves = Object.keys(TABLAS);
-    const res = await Promise.all(claves.map(k =>
-      fetch(`${API}/${TABLAS[k]}`, {headers: {apikey: KEY}}).then(r => {
-        if (!r.ok) throw new Error(`${k}: ${r.status}`);
-        return r.json();
-      })
-    ));
-    return Object.fromEntries(claves.map((k, i) => [k, res[i]]));
-  }
 
   function evHTML(e) {
     const h = hhmm(e.hora), hf = hhmm(e.hora_fin);
@@ -317,26 +295,21 @@ footer p{margin:0;padding:18px 0}
   function errorHTML(msg) {
     $('main').innerHTML = `<div class="error" role="alert">
       <p><strong>No se pudo cargar el itinerario.</strong></p>
-      <p>Revisá la conexión y recargá la página.</p>
+      <p>Revisá que datos.js no tenga errores de comas o comillas.</p>
       <p style="color:var(--gris);font-size:14px">${esc(msg)}</p></div>`;
   }
 
-  (async () => {
-    try {
-      const datos = await cargar();
-      try { localStorage.setItem(CACHE, JSON.stringify({t: Date.now(), datos})); } catch (_) {}
-      render(datos, '');
-    } catch (err) {
-      let guardado = null;
-      try { guardado = JSON.parse(localStorage.getItem(CACHE)); } catch (_) {}
-      if (guardado && guardado.datos) {
-        const cuando = new Date(guardado.t).toLocaleString('es-AR', {dateStyle: 'medium', timeStyle: 'short'});
-        render(guardado.datos, `Sin conexión: se muestra la última versión guardada (${cuando}).`);
-      } else {
-        errorHTML(err.message);
-      }
-    }
-  })();
+  const D = window.DATOS;
+  if (!D) { errorHTML('No se encontró datos.js'); return; }
+  try {
+    render({
+      config: Object.entries(D.config || {}).map(([clave, valor]) => ({clave, valor})),
+      personas: D.personas || [], dias: D.dias || [], eventos: D.eventos || [],
+      reservas: D.reservas || [], pendientes: D.pendientes || []
+    }, '');
+  } catch (err) {
+    errorHTML(err.message);
+  }
 })();
 </script>
 </body>
