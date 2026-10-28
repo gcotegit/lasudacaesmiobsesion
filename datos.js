@@ -52,10 +52,11 @@ window.DATOS = {
       detalle: "Empresa General Urquiza, semicama. Butaca 19 Ayrton, butaca 20 Gabriel. Llegada estimada 01:30 del 17/11. Llevar DNI.",
       personas: "Gabriel, Ayrton" },
 
-    { fecha: "2026-11-17", orden: 1, hora: "01:30", hora_fin: null, fin_dia_siguiente: false, tipo: "vip", estado: "a confirmar",
+    { fecha: "2026-11-17", orden: 1, hora: "01:30", hora_fin: null, fin_dia_siguiente: false, tipo: "vip", estado: "confirmado",
       titulo: "Espera en Córdoba hasta el vuelo",
+      enlace: "https://amaelounge.com/es/nuestros-salones/", enlace_texto: "AMAE Lounge",
       lugar: "Aeropuerto de Córdoba",
-      detalle: "Llegan a las 01:30 y el vuelo sale a las 06:31. El AMAE Lounge del aeropuerto abre las 24 h, está antes de seguridad y migraciones, y permite estadía de hasta 3 h (según Priority Pass). Traslado de la terminal al aeropuerto en Uber o Cabify.",
+      detalle: "Llegan a las 01:30 y el vuelo sale a las 06:31. Esperan en el Córdoba by AMAE Lounge, abierto las 24 h. Traslado de la terminal al aeropuerto en Uber o Cabify.",
       personas: "Gabriel, Ayrton" },
     { fecha: "2026-11-17", orden: 2, hora: "06:31", hora_fin: "11:10", fin_dia_siguiente: false, tipo: "vuelo", estado: "confirmado",
       titulo: "Córdoba → Panamá · Copa CM169",
@@ -70,7 +71,8 @@ window.DATOS = {
     { fecha: "2026-11-17", orden: 4, hora: "13:29", hora_fin: "19:35", fin_dia_siguiente: false, tipo: "vip", estado: "a confirmar",
       titulo: "Escala en Bogotá (unas 6 h)",
       lugar: "Aeropuerto El Dorado",
-      detalle: "Salas en El Dorado, todas en Terminal 1: The Lounge (muelle D, 24 h), El Dorado Lounge (muelle internacional, 24 h) y Copa Club (3:30 a 21:30), con Priority Pass, LoungeKey o Diners. Las salas Avianca piden business o estatus. Son reservas separadas (Copa y Avianca): contemplar migración y un nuevo check-in.",
+      detalle: "Dos opciones, las dos en la Terminal 1, muelle internacional. El Dorado Lounge: frente a la puerta A8, abierto las 24 h, estadía máxima de 6 h con Priority Pass. Sala VIP LATAM: tercer piso, frente a la puerta 34, abre hasta la 1:00; entran pasajeros en business, socios LATAM Pass Black Signature, Black y Platinum, o pagando en recepción (según una nota de 2022). Falta confirmar si se puede entrar al muelle internacional con el pasaje nacional a Cartagena. Son reservas separadas (Copa y Avianca): contemplar migración y un nuevo check-in.",
+      enlace: "https://www.prioritypass.com/en-GB/lounges/colombia/el-dorado-international/bog9-el-dorado-lounge-international-departures", enlace_texto: "El Dorado Lounge en Priority Pass",
       personas: "Gabriel, Ayrton" },
     { fecha: "2026-11-17", orden: 5, hora: "19:35", hora_fin: "21:05", fin_dia_siguiente: false, tipo: "vuelo", estado: "confirmado",
       titulo: "Bogotá → Cartagena · Avianca AV8556",
@@ -221,7 +223,7 @@ window.DATOS = {
       notas: "Ida: CM169 y CM415 el 17/11. Vuelta: CM416 y CM788 el 24/11. Falta la reserva de Ayrton." }
   ],
 
-  /* ---------- Lo que falta resolver (resuelto: true lo tacha) ---------- */
+  /* ---------- Lo que falta resolver (borrá la línea cuando se resuelva) ---------- */
   pendientes: [
     { texto: "Falta el comprobante de Copa de Ayrton.", resuelto: false },
     { texto: "Faltan los vuelos de Leandro (llegada el 18, salida el 22).", resuelto: false },
@@ -230,9 +232,6 @@ window.DATOS = {
     { texto: "Falta el transporte de Barranquilla a Santa Marta (22/11).", resuelto: false },
     { texto: "Falta alojamiento en Bogotá la noche del 23/11 (llegan 22:35, el vuelo sale 10:40).", resuelto: false },
     { texto: "Falta el pasaje de Córdoba a Rosario (25/11, aterrizan 02:42).", resuelto: false },
-    { texto: "Traslado de la terminal de Córdoba al aeropuerto (17/11): en Uber o Cabify.", resuelto: true },
-    { texto: "Equipaje: viajan solo con mochila y entra en todos los tramos.", resuelto: true },
-    { texto: "Falta definir con qué tarjeta o membresía entran a las salas VIP (Priority Pass, LoungeKey, Diners u otra).", resuelto: false },
     { texto: "Ojo con la conexión en Panamá del 17/11: solo 38 minutos entre CM169 y CM415.", resuelto: false },
     { texto: "Falta pagar el 50% del Hostal Badillo (entre el 12 y el 17/11; cancelación gratis hasta el 11/11).", resuelto: false },
     { texto: "Cancelación gratis del Hotel Intersuites hasta el 18/11 a las 23:59.", resuelto: false }
