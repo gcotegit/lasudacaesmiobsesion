@@ -96,6 +96,7 @@ h3{margin:22px 0 8px;font-size:15px;font-weight:700;color:var(--gris)}
 .ev-titulo svg{flex:none;width:18px;height:18px;margin-top:3px;color:var(--azul-2)}
 .ev-lugar{margin:2px 0 0;color:var(--gris);font-size:14px}
 .ev-detalle{margin:6px 0 0;font-size:15px}
+.ev-titulo a{color:inherit;text-decoration-color:var(--azul-2);text-underline-offset:3px}
 .ev-pie{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;margin:8px 0 0;font-size:14px;color:var(--gris)}
 .tag{padding:0 8px;border-radius:999px;font-size:12px;font-weight:700;line-height:20px;background:#FFF4CC;color:var(--tinta);border:1px solid var(--oro)}
 .tag.pendiente{background:#FBE3E1;border-color:var(--rojo);color:var(--rojo)}
@@ -172,6 +173,11 @@ footer p{margin:0;padding:18px 0}
   const TIPOS = {vuelo:'Vuelo', bus:'Bus', hotel:'Alojamiento', partido:'Partido', vip:'Sala VIP', traslado:'Traslado', nota:'Nota'};
   const ESTADOS = {'a confirmar':'A confirmar', 'pendiente':'Sin resolver'};
 
+  const linkOk = u => /^https?:\/\//i.test(u || '');
+  const tituloHTML = e => e.mapa
+    ? `<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(e.mapa)}" target="_blank" rel="noopener">${esc(e.titulo)}</a>`
+    : esc(e.titulo);
+
   function evHTML(e) {
     const h = hhmm(e.hora), hf = hhmm(e.hora_fin);
     const tiempo = h
@@ -184,9 +190,10 @@ footer p{margin:0;padding:18px 0}
     return `<li class="ev" data-estado="${esc(slug)}">
       <div class="hora">${tiempo}</div>
       <div>
-        <p class="ev-titulo">${ICONOS[tipo]}<span><span class="sr">${TIPOS[tipo]}: </span>${esc(e.titulo)}</span></p>
+        <p class="ev-titulo">${ICONOS[tipo]}<span><span class="sr">${TIPOS[tipo]}: </span>${tituloHTML(e)}</span></p>
         ${e.lugar ? `<p class="ev-lugar">${esc(e.lugar)}</p>` : ''}
         ${e.detalle ? `<p class="ev-detalle">${esc(e.detalle)}</p>` : ''}
+        ${linkOk(e.enlace) ? `<p class="ev-detalle"><a href="${esc(e.enlace)}" target="_blank" rel="noopener">${esc(e.enlace_texto || 'Abrir enlace')}</a></p>` : ''}
         ${(e.personas || tag) ? `<p class="ev-pie">${e.personas ? `<span>${esc(e.personas)}</span>` : ''}${tag}</p>` : ''}
       </div>
     </li>`;
