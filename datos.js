@@ -27,7 +27,7 @@ window.DATOS = {
   personas: [
     { nombre: "Gabriel", detalle: "Todo el viaje, del 16 al 25 de noviembre." },
     { nombre: "Ayrton", detalle: "Todo el viaje, junto a Gabriel." },
-    { nombre: "Leandro", detalle: "Llega el 18 y se va el 22. Sus vuelos todavía no están cargados." }
+    { nombre: "Leandro", detalle: "Llega el 18 y se va el 22. Faltan sus vuelos." }
   ],
 
   /* ---------- Días (encabezado de cada día) ---------- */
@@ -35,7 +35,7 @@ window.DATOS = {
     { fecha: "2026-11-16", ciudad: "Rosario → Córdoba", titulo: "Bus nocturno a Córdoba", resumen: "Sale a las 20:00 desde Rosario." },
     { fecha: "2026-11-17", ciudad: "Córdoba → Cartagena", titulo: "Vuelo a Colombia", resumen: "Córdoba, Panamá, Bogotá y Cartagena en un solo día." },
     { fecha: "2026-11-18", ciudad: "Cartagena", titulo: "Llega Leandro", resumen: "Primer día completo en Cartagena." },
-    { fecha: "2026-11-19", ciudad: "Cartagena", titulo: "Día en Cartagena", resumen: "Sin actividades cargadas todavía." },
+    { fecha: "2026-11-19", ciudad: "Cartagena", titulo: "Día en Cartagena", resumen: "Falta definir qué hacer." },
     { fecha: "2026-11-20", ciudad: "Cartagena → Barranquilla", titulo: "Bus a Barranquilla", resumen: "Bus de las 07:00, hotel en Barranquilla." },
     { fecha: "2026-11-21", ciudad: "Barranquilla", titulo: "La final", resumen: "Boca juega la final de la Sudamericana." },
     { fecha: "2026-11-22", ciudad: "Barranquilla → Santa Marta", titulo: "Santa Marta", resumen: "Leandro vuelve; siguen Gabriel y Ayrton." },
@@ -55,12 +55,12 @@ window.DATOS = {
     { fecha: "2026-11-17", orden: 1, hora: "01:30", hora_fin: null, fin_dia_siguiente: false, tipo: "vip", estado: "a confirmar",
       titulo: "Espera en Córdoba hasta el vuelo",
       lugar: "Aeropuerto de Córdoba",
-      detalle: "Llegan a las 01:30 y el vuelo sale a las 06:31. El AMAE Lounge del aeropuerto abre las 24 h, está antes de seguridad y migraciones, y permite estadía de hasta 3 h (según Priority Pass). Falta resolver el traslado de la terminal al aeropuerto.",
+      detalle: "Llegan a las 01:30 y el vuelo sale a las 06:31. El AMAE Lounge del aeropuerto abre las 24 h, está antes de seguridad y migraciones, y permite estadía de hasta 3 h (según Priority Pass). Falta el traslado de la terminal al aeropuerto.",
       personas: "Gabriel, Ayrton" },
     { fecha: "2026-11-17", orden: 2, hora: "06:31", hora_fin: "11:10", fin_dia_siguiente: false, tipo: "vuelo", estado: "confirmado",
       titulo: "Córdoba → Panamá · Copa CM169",
       lugar: "COR → PTY",
-      detalle: "Llegan a Panamá a las 11:10 (hora local). La conexión con el CM415 es de solo 38 minutos. Ayrton: falta cargar su comprobante.",
+      detalle: "Llegan a Panamá a las 11:10 (hora local). La conexión con el CM415 es de solo 38 minutos. Falta el comprobante de Ayrton.",
       personas: "Gabriel" },
     { fecha: "2026-11-17", orden: 3, hora: "11:48", hora_fin: "13:29", fin_dia_siguiente: false, tipo: "vuelo", estado: "confirmado",
       titulo: "Panamá → Bogotá · Copa CM415",
@@ -86,7 +86,7 @@ window.DATOS = {
     { fecha: "2026-11-18", orden: 1, hora: null, hora_fin: null, fin_dia_siguiente: false, tipo: "vuelo", estado: "a confirmar",
       titulo: "Llega Leandro",
       lugar: null,
-      detalle: "Falta cargar su vuelo: ciudad y hora de llegada.",
+      detalle: "Falta su vuelo (ciudad y hora de llegada).",
       personas: "Leandro" },
 
     { fecha: "2026-11-20", orden: 1, hora: "07:00", hora_fin: "10:00", fin_dia_siguiente: false, tipo: "bus", estado: "confirmado",
@@ -108,13 +108,13 @@ window.DATOS = {
     { fecha: "2026-11-21", orden: 1, hora: null, hora_fin: null, fin_dia_siguiente: false, tipo: "partido", estado: "a confirmar",
       titulo: "Final Copa Sudamericana: Boca vs Atlético Mineiro",
       lugar: "Estadio Metropolitano Roberto Meléndez, Barranquilla",
-      detalle: "Sábado 21/11 en el Estadio Metropolitano Roberto Meléndez. El horario no estaba anunciado en las notas que leí. Entradas: sin cargar.",
+      detalle: "Faltan las entradas y el horario.",
       personas: "Gabriel, Ayrton, Leandro" },
 
     { fecha: "2026-11-22", orden: 1, hora: null, hora_fin: null, fin_dia_siguiente: false, tipo: "vuelo", estado: "a confirmar",
       titulo: "Se va Leandro",
       lugar: null,
-      detalle: "Falta cargar su vuelo de regreso.",
+      detalle: "Falta su vuelo de regreso.",
       personas: "Leandro" },
     { fecha: "2026-11-22", orden: 2, hora: null, hora_fin: null, fin_dia_siguiente: false, tipo: "hotel", estado: "confirmado",
       titulo: "Check-out Hotel Intersuites",
@@ -124,7 +124,7 @@ window.DATOS = {
     { fecha: "2026-11-22", orden: 3, hora: null, hora_fin: null, fin_dia_siguiente: false, tipo: "traslado", estado: "pendiente",
       titulo: "Barranquilla → Santa Marta",
       lugar: "Barranquilla → Santa Marta",
-      detalle: "Sin pasaje ni traslado cargado.",
+      detalle: "Falta el pasaje o traslado.",
       personas: "Gabriel, Ayrton" },
     { fecha: "2026-11-22", orden: 4, hora: null, hora_fin: null, fin_dia_siguiente: false, tipo: "hotel", estado: "confirmado",
       titulo: "Check-in Soy Local Santa Marta",
@@ -145,13 +145,13 @@ window.DATOS = {
     { fecha: "2026-11-23", orden: 3, hora: "22:35", hora_fin: null, fin_dia_siguiente: false, tipo: "hotel", estado: "pendiente",
       titulo: "Noche en Bogotá",
       lugar: "Bogotá",
-      detalle: "Sin alojamiento cargado. El vuelo a Panamá sale a las 10:40.",
+      detalle: "Falta alojamiento. El vuelo a Panamá sale a las 10:40.",
       personas: "Gabriel, Ayrton" },
 
     { fecha: "2026-11-24", orden: 1, hora: "10:40", hora_fin: "12:31", fin_dia_siguiente: false, tipo: "vuelo", estado: "confirmado",
       titulo: "Bogotá → Panamá · Copa CM416",
       lugar: "BOG → PTY",
-      detalle: "Ayrton: falta cargar su comprobante.",
+      detalle: "Falta el comprobante de Ayrton.",
       personas: "Gabriel" },
     { fecha: "2026-11-24", orden: 2, hora: "12:31", hora_fin: "18:11", fin_dia_siguiente: false, tipo: "vip", estado: "a confirmar",
       titulo: "Escala en Panamá (5 h 40)",
@@ -167,7 +167,7 @@ window.DATOS = {
     { fecha: "2026-11-25", orden: 1, hora: "02:42", hora_fin: null, fin_dia_siguiente: false, tipo: "nota", estado: "pendiente",
       titulo: "Llegada a Córdoba",
       lugar: "Aeropuerto de Córdoba",
-      detalle: "Falta resolver el regreso a Rosario: no hay pasaje cargado.",
+      detalle: "Falta el pasaje a Rosario.",
       personas: "Gabriel, Ayrton" }
   ],
 
@@ -215,23 +215,23 @@ window.DATOS = {
       direccion: null, telefono: null,
       desde: "2026-11-17", hasta: "2026-11-24", personas: "Gabriel", monto: null,
       pago: null, cancelacion: null,
-      notas: "Ida: CM169 y CM415 el 17/11. Vuelta: CM416 y CM788 el 24/11. Solo está cargada la reserva de Gabriel; falta la de Ayrton." }
+      notas: "Ida: CM169 y CM415 el 17/11. Vuelta: CM416 y CM788 el 24/11. Falta la reserva de Ayrton." }
   ],
 
   /* ---------- Lo que falta resolver (resuelto: true lo tacha) ---------- */
   pendientes: [
-    { texto: "Comprobante de Copa de Ayrton: solo tengo el de Gabriel.", resuelto: false },
-    { texto: "Vuelos de Leandro: llegada el 18 y salida el 22 (ciudad y horarios).", resuelto: false },
-    { texto: "Cartagena y Barranquilla están reservadas para 4 adultos y el viaje es de 3: confirmar si viene una cuarta persona o ajustar la reserva.", resuelto: false },
-    { texto: "Entradas de la final y horario del partido.", resuelto: false },
-    { texto: "Transporte de Barranquilla a Santa Marta el 22/11.", resuelto: false },
-    { texto: "Alojamiento en Bogotá la noche del 23/11: llegan 22:35 y el vuelo sale 10:40.", resuelto: false },
-    { texto: "Regreso de Córdoba a Rosario el 25/11: aterrizan 02:42.", resuelto: false },
-    { texto: "Traslado de la terminal de Córdoba al aeropuerto el 17/11: llegan 01:30 y el vuelo sale 06:31.", resuelto: false },
-    { texto: "Equipaje: los dos tramos de Avianca son BASIC y no incluyen equipaje; decidir si lo compran antes.", resuelto: false },
-    { texto: "Salas VIP: confirmar con qué tarjeta o membresía entran (Priority Pass, LoungeKey, Diners u otra) y revisar horarios antes de viajar.", resuelto: false },
-    { texto: "Conexión en Panamá el 17/11: solo 38 minutos entre CM169 y CM415.", resuelto: false },
-    { texto: "Pagar el 50% del Hostal Badillo entre el 12 y el 17/11; cancelación gratis hasta el 11/11.", resuelto: false },
+    { texto: "Falta el comprobante de Copa de Ayrton.", resuelto: false },
+    { texto: "Faltan los vuelos de Leandro (llegada el 18, salida el 22).", resuelto: false },
+    { texto: "Falta confirmar la cuarta persona: Cartagena y Barranquilla están reservadas para 4 adultos y viajan 3.", resuelto: false },
+    { texto: "Faltan las entradas de la final y el horario del partido.", resuelto: false },
+    { texto: "Falta el transporte de Barranquilla a Santa Marta (22/11).", resuelto: false },
+    { texto: "Falta alojamiento en Bogotá la noche del 23/11 (llegan 22:35, el vuelo sale 10:40).", resuelto: false },
+    { texto: "Falta el pasaje de Córdoba a Rosario (25/11, aterrizan 02:42).", resuelto: false },
+    { texto: "Falta el traslado de la terminal de Córdoba al aeropuerto (17/11, llegan 01:30 y el vuelo sale 06:31).", resuelto: false },
+    { texto: "Falta decidir el equipaje: los dos tramos de Avianca son BASIC y no lo incluyen.", resuelto: false },
+    { texto: "Falta definir con qué tarjeta o membresía entran a las salas VIP (Priority Pass, LoungeKey, Diners u otra).", resuelto: false },
+    { texto: "Ojo con la conexión en Panamá del 17/11: solo 38 minutos entre CM169 y CM415.", resuelto: false },
+    { texto: "Falta pagar el 50% del Hostal Badillo (entre el 12 y el 17/11; cancelación gratis hasta el 11/11).", resuelto: false },
     { texto: "Cancelación gratis del Hotel Intersuites hasta el 18/11 a las 23:59.", resuelto: false }
   ]
 };
