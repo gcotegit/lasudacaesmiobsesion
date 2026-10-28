@@ -1,10 +1,343 @@
-   <!DOCTYPE html>
-   <html lang="es">
-   <head>
-     <meta charset="UTF-8">
-     <title>Mi sitio</title>
-   </head>
-   <body>
-     <h1>Funciona</h1>
-   </body>
-   </html>
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La Sudaca es mi obsesión</title>
+<meta name="description" content="Itinerario del viaje a Colombia para la final de la Copa Sudamericana.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0C2B6E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230C2B6E'/%3E%3Crect y='11' width='32' height='10' fill='%23F5B800'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --azul:#0C2B6E; --azul-2:#1B4CAE; --oro:#F5B800; --tinta:#0B1F4A;
+  --cielo:#E8EEF8; --papel:#FFFFFF; --rojo:#B3261E; --gris:#51607F; --linea:#CBD6EA;
+  --display:'Big Shoulders Display','Arial Narrow',Impact,sans-serif;
+  --texto:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--cielo);color:var(--tinta);font:16px/1.5 var(--texto)}
+a{color:var(--azul-2)}
+:focus-visible{outline:3px solid var(--azul-2);outline-offset:2px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{max-width:720px;margin:0 auto;padding:0 16px}
+
+/* Cabecera: azul, franja dorada, azul (como la camiseta) */
+.hero{background:var(--azul);color:#fff}
+.hero-cab{padding-top:30px;padding-bottom:22px}
+.hero h1{margin:0 0 8px;font:800 clamp(46px,13vw,88px)/.9 var(--display)}
+.hero .sub{margin:0;color:#C9D6F2}
+.banda{background:var(--oro);color:var(--azul)}
+.banda p{margin:0;padding:12px 0 10px;font:900 clamp(30px,8.6vw,56px)/1 var(--display);text-transform:uppercase}
+.final-info{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 20px;padding-top:16px;padding-bottom:22px}
+.final-lugar{margin:0;color:#DCE6FA}
+.final-lugar strong{color:#fff;font-weight:600}
+.cuenta{margin:0;font:800 30px/1 var(--display);color:var(--oro)}
+
+/* Navegación por día */
+.dias-nav{position:sticky;top:0;z-index:10;background:var(--azul);border-top:1px solid #2B55A8}
+.dias-nav ul{display:flex;gap:6px;list-style:none;margin:0;padding:8px 0;overflow-x:auto;scrollbar-width:none}
+.dias-nav ul::-webkit-scrollbar{display:none}
+.dias-nav a{display:flex;flex-direction:column;align-items:center;min-width:48px;padding:4px 8px;border:1px solid transparent;border-radius:999px;color:#fff;text-decoration:none;font-size:12px;line-height:1.2}
+.dias-nav a b{font:800 20px/1 var(--display)}
+.dias-nav a.hoy{border-color:var(--oro);color:var(--oro)}
+.dias-nav :focus-visible{outline-color:var(--oro)}
+
+.contenido{padding-top:24px;padding-bottom:56px}
+h2{margin:40px 0 14px;font:800 32px/1 var(--display);color:var(--azul)}
+h3{margin:22px 0 8px;font-size:15px;font-weight:700;color:var(--gris)}
+.aviso{background:#FFF4CC;border:1px solid var(--oro);border-radius:8px;padding:10px 14px;margin:0 0 16px}
+.error{background:#fff;border:2px solid var(--rojo);border-radius:8px;padding:14px 16px}
+.error p{margin:0 0 6px}
+
+/* Lo que viene */
+.proximo{margin:0;background:var(--papel);border-left:8px solid var(--oro);border-radius:10px;padding:14px 16px}
+.proximo h2{margin:0 0 6px;font-size:22px}
+.proximo-cuando{margin:0;color:var(--gris);font-size:14px}
+.proximo-titulo{margin:2px 0 4px;font:800 28px/1.05 var(--display)}
+.proximo p.det{margin:0;font-size:15px}
+
+/* Pendientes */
+.pend{background:var(--papel);border:1px solid var(--linea);border-radius:8px;margin-top:16px}
+.pend summary{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px;font-weight:700;cursor:pointer;list-style:none}
+.pend summary::-webkit-details-marker{display:none}
+.pend .n{background:var(--rojo);color:#fff;border-radius:999px;padding:0 10px;font-size:14px}
+.pend .n.cero{background:var(--azul-2)}
+.pend ul{margin:0;padding:0 16px 14px 36px}
+.pend li{margin:6px 0}
+.pend li.ok{color:var(--gris);text-decoration:line-through}
+
+/* Itinerario */
+.leyenda{display:flex;flex-wrap:wrap;gap:6px 16px;margin:0 0 18px;padding:0;list-style:none;color:var(--gris);font-size:14px}
+.leyenda li{display:flex;align-items:center;gap:6px}
+.leyenda i{display:inline-block;width:5px;height:16px;border-radius:2px}
+.dia{margin:0 0 30px;scroll-margin-top:72px}
+.dia-cab{display:grid;grid-template-columns:auto 1fr;column-gap:14px;align-items:end;padding-bottom:8px;margin-bottom:12px;border-bottom:3px solid var(--azul)}
+.dia-num{grid-row:1 / span 3;font:900 64px/.82 var(--display);color:var(--azul)}
+.dia-fecha{margin:0;color:var(--gris);font-size:14px}
+.dia-ciudad{margin:0;font:800 28px/1.05 var(--display)}
+.dia-resumen{margin:0;font-size:14px;color:var(--gris)}
+.hoy-marca{display:inline-block;margin-left:8px;padding:0 8px;border-radius:999px;background:var(--oro);color:var(--azul);font:700 12px/20px var(--texto);vertical-align:middle}
+.eventos{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.ev{display:grid;grid-template-columns:58px 1fr;gap:12px;background:var(--papel);border:1px solid var(--linea);border-left:5px solid var(--azul);border-radius:6px;padding:12px 14px}
+.ev[data-estado="a-confirmar"]{border-left-color:var(--oro)}
+.ev[data-estado="pendiente"]{border-left-color:var(--rojo)}
+.hora{font-variant-numeric:tabular-nums;line-height:1.25}
+.hora b{display:block;font-size:17px}
+.hora span{display:block;color:var(--gris);font-size:13px}
+.hora .sinhora{font-size:12px}
+.hora abbr{text-decoration:none;font-weight:700}
+.ev-titulo{display:flex;gap:8px;align-items:flex-start;margin:0;font-weight:700;font-size:17px;line-height:1.3}
+.ev-titulo svg{flex:none;width:18px;height:18px;margin-top:3px;color:var(--azul-2)}
+.ev-lugar{margin:2px 0 0;color:var(--gris);font-size:14px}
+.ev-detalle{margin:6px 0 0;font-size:15px}
+.ev-pie{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;margin:8px 0 0;font-size:14px;color:var(--gris)}
+.tag{padding:0 8px;border-radius:999px;font-size:12px;font-weight:700;line-height:20px;background:#FFF4CC;color:var(--tinta);border:1px solid var(--oro)}
+.tag.pendiente{background:#FBE3E1;border-color:var(--rojo);color:var(--rojo)}
+
+/* Reservas */
+.res{background:var(--papel);border:1px solid var(--linea);border-radius:8px;margin:0 0 8px}
+.res summary{display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding:12px 14px;cursor:pointer;list-style:none}
+.res summary::-webkit-details-marker{display:none}
+.res-nombre{font-weight:700}
+.res-fechas{grid-column:1;color:var(--gris);font-size:14px}
+.res-monto{grid-column:2;grid-row:1 / span 2;align-self:center;text-align:right;font-weight:600;font-size:14px;max-width:46vw}
+.res dl{margin:0;padding:0 14px 14px;display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:15px}
+.res dt{color:var(--gris)}
+.res dd{margin:0}
+
+.gente{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.gente li{background:var(--papel);border:1px solid var(--linea);border-radius:8px;padding:10px 14px}
+.gente b{display:block;font:800 24px/1.1 var(--display);color:var(--azul)}
+
+footer{background:var(--azul);color:#C9D6F2;font-size:14px}
+footer p{margin:0;padding:18px 0}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap hero-cab">
+    <h1 id="titulo">La Sudaca es mi obsesión</h1>
+    <p class="sub" id="subtitulo"></p>
+  </div>
+  <div class="banda"><div class="wrap"><p id="final-titulo">Final de la Sudamericana</p></div></div>
+  <div class="wrap final-info">
+    <p class="final-lugar"><strong id="final-fecha"></strong><br><span id="final-lugar"></span></p>
+    <p class="cuenta" id="cuenta"></p>
+  </div>
+</header>
+
+<nav class="dias-nav" id="nav" aria-label="Días del viaje" hidden>
+  <div class="wrap"><ul id="nav-lista"></ul></div>
+</nav>
+
+<main class="wrap contenido" id="main">
+  <p role="status" id="cargando">Cargando el itinerario…</p>
+  <noscript><p class="error">Esta página necesita JavaScript para mostrar el itinerario.</p></noscript>
+</main>
+
+<footer><div class="wrap"><p>Los datos se leen de la base cada vez que abrís la página.</p></div></footer>
+
+<script>
+(() => {
+  const API = 'https://bwzurjyweyfkwinhdykm.supabase.co/rest/v1';
+  const KEY = 'sb_publishable_Me-ZS9s_xryLpPbRY_kbnw_RZcoaybw';
+  const CACHE = 'sudaca-viaje-v1';
+  const TABLAS = {
+    config: 'viaje_config?select=*',
+    personas: 'viaje_personas?select=*&order=orden',
+    dias: 'viaje_dias?select=*&order=fecha',
+    eventos: 'viaje_eventos?select=*&order=fecha,orden',
+    reservas: 'viaje_reservas?select=*&order=orden',
+    pendientes: 'viaje_pendientes?select=*&order=orden'
+  };
+
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
+  const dt = f => new Date(f + 'T00:00:00Z');
+  const fLarga = new Intl.DateTimeFormat('es-AR', {weekday:'long', day:'numeric', month:'long', timeZone:'UTC'});
+  const fSemana = new Intl.DateTimeFormat('es-AR', {weekday:'long', timeZone:'UTC'});
+  const fMes = new Intl.DateTimeFormat('es-AR', {month:'long', timeZone:'UTC'});
+  const semMes = f => `${cap(fSemana.format(dt(f)))} de ${fMes.format(dt(f))}`;
+  const fSem = new Intl.DateTimeFormat('es-AR', {weekday:'short', timeZone:'UTC'});
+  const fCorta = new Intl.DateTimeFormat('es-AR', {day:'numeric', month:'short', timeZone:'UTC'});
+  const larga = f => cap(fLarga.format(dt(f)).replace(',', ''));
+  const hhmm = h => h ? String(h).slice(0, 5) : null;
+
+  const P = (d) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
+  const ICONOS = {
+    vuelo: P('<path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>'),
+    bus: P('<path d="M8 6v6"/><path d="M15 6v6"/><path d="M2 12h19.6"/><path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"/><circle cx="7" cy="18" r="2"/><path d="M9 18h5"/><circle cx="16" cy="18" r="2"/>'),
+    hotel: P('<path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8"/><path d="M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"/><path d="M12 4v6"/><path d="M2 18h20"/>'),
+    partido: P('<circle cx="12" cy="12" r="10"/><path d="m12 8 4 3-1.5 4.5h-5L8 11z"/><path d="M12 2v6M16 11l5.5-1.5M14.5 15.5 18 20M9.5 15.5 6 20M8 11 2.5 9.5"/>'),
+    vip: P('<path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3"/><path d="M2 11v5a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v2H6v-2a2 2 0 0 0-4 0Z"/><path d="M4 18v2"/><path d="M20 18v2"/>'),
+    traslado: P('<path d="M3 12h18"/><path d="m15 6 6 6-6 6"/>'),
+    nota: P('<circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/>')
+  };
+  const TIPOS = {vuelo:'Vuelo', bus:'Bus', hotel:'Alojamiento', partido:'Partido', vip:'Sala VIP', traslado:'Traslado', nota:'Nota'};
+  const ESTADOS = {'a confirmar':'A confirmar', 'pendiente':'Sin resolver'};
+
+  async function cargar() {
+    const claves = Object.keys(TABLAS);
+    const res = await Promise.all(claves.map(k =>
+      fetch(`${API}/${TABLAS[k]}`, {headers: {apikey: KEY}}).then(r => {
+        if (!r.ok) throw new Error(`${k}: ${r.status}`);
+        return r.json();
+      })
+    ));
+    return Object.fromEntries(claves.map((k, i) => [k, res[i]]));
+  }
+
+  function evHTML(e) {
+    const h = hhmm(e.hora), hf = hhmm(e.hora_fin);
+    const tiempo = h
+      ? `<b>${h}</b>${hf ? `<span>${hf}${e.fin_dia_siguiente ? ' <abbr title="al día siguiente">+1</abbr>' : ''}</span>` : ''}`
+      : '<span class="sinhora">sin hora</span>';
+    const estado = (e.estado || 'confirmado').trim();
+    const slug = estado.replace(/\s+/g, '-');
+    const tipo = ICONOS[e.tipo] ? e.tipo : 'nota';
+    const tag = ESTADOS[estado] ? `<span class="tag ${estado === 'pendiente' ? 'pendiente' : ''}">${ESTADOS[estado]}</span>` : '';
+    return `<li class="ev" data-estado="${esc(slug)}">
+      <div class="hora">${tiempo}</div>
+      <div>
+        <p class="ev-titulo">${ICONOS[tipo]}<span><span class="sr">${TIPOS[tipo]}: </span>${esc(e.titulo)}</span></p>
+        ${e.lugar ? `<p class="ev-lugar">${esc(e.lugar)}</p>` : ''}
+        ${e.detalle ? `<p class="ev-detalle">${esc(e.detalle)}</p>` : ''}
+        ${(e.personas || tag) ? `<p class="ev-pie">${e.personas ? `<span>${esc(e.personas)}</span>` : ''}${tag}</p>` : ''}
+      </div>
+    </li>`;
+  }
+
+  function reservaHTML(r) {
+    let rango = '';
+    if (r.desde && r.hasta) rango = `${fCorta.format(dt(r.desde))} al ${fCorta.format(dt(r.hasta))}`;
+    else if (r.desde) rango = fCorta.format(dt(r.desde));
+    const mapa = r.direccion
+      ? `<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent([r.nombre, r.direccion, r.ciudad].filter(Boolean).join(' '))}" target="_blank" rel="noopener">${esc(r.direccion)}</a>`
+      : '';
+    const tel = r.telefono ? `<a href="tel:${esc(r.telefono.replace(/[^\d+]/g, ''))}">${esc(r.telefono)}</a>` : '';
+    const filas = [
+      ['Dirección', mapa], ['Teléfono', tel], ['Personas', esc(r.personas)],
+      ['Pago', esc(r.pago)], ['Cancelación', esc(r.cancelacion)], ['Notas', esc(r.notas)]
+    ].filter(f => f[1]).map(f => `<dt>${f[0]}</dt><dd>${f[1]}</dd>`).join('');
+    return `<details class="res">
+      <summary><span class="res-nombre">${esc(r.nombre)}</span><span class="res-fechas">${esc(rango)}</span><span class="res-monto">${esc(r.monto)}</span></summary>
+      <dl>${filas}</dl>
+    </details>`;
+  }
+
+  function render(d, avisoTexto) {
+    const cfg = Object.fromEntries(d.config.map(x => [x.clave, x.valor]));
+    const hoy = new Date().toLocaleDateString('en-CA');
+    const ahora = new Date().toTimeString().slice(0, 5);
+
+    if (cfg.titulo) { $('titulo').textContent = cfg.titulo; document.title = cfg.titulo; }
+    $('subtitulo').textContent = cfg.subtitulo || '';
+    if (cfg.final_titulo) $('final-titulo').textContent = cfg.final_titulo;
+    $('final-lugar').textContent = cfg.final_lugar || '';
+    if (cfg.fecha_final) {
+      $('final-fecha').textContent = larga(cfg.fecha_final);
+      const dif = Math.round((dt(cfg.fecha_final) - dt(hoy)) / 86400000);
+      $('cuenta').textContent = dif > 1 ? `Faltan ${dif} días` : dif === 1 ? 'Mañana es la final' : dif === 0 ? 'Hoy es la final' : '';
+    }
+
+    const eventos = d.eventos.slice().sort((a, b) =>
+      a.fecha.localeCompare(b.fecha) || a.orden - b.orden || String(a.hora || '').localeCompare(String(b.hora || '')));
+    const porDia = {};
+    eventos.forEach(e => (porDia[e.fecha] = porDia[e.fecha] || []).push(e));
+    const dias = d.dias.slice();
+    Object.keys(porDia).forEach(f => { if (!dias.some(x => x.fecha === f)) dias.push({fecha: f}); });
+    dias.sort((a, b) => a.fecha.localeCompare(b.fecha));
+
+    $('nav-lista').innerHTML = dias.map(x =>
+      `<li><a href="#dia-${x.fecha}" class="${x.fecha === hoy ? 'hoy' : ''}" aria-label="${larga(x.fecha)}"><span>${fSem.format(dt(x.fecha)).replace('.', '')}</span><b>${dt(x.fecha).getUTCDate()}</b></a></li>`).join('');
+    $('nav').hidden = !dias.length;
+
+    const prox = eventos.find(e => e.fecha > hoy || (e.fecha === hoy && (!e.hora || hhmm(e.hora) >= ahora)));
+    const proxHTML = prox ? `<section class="proximo" aria-labelledby="h-prox">
+        <h2 id="h-prox">Lo que viene</h2>
+        <p class="proximo-cuando">${larga(prox.fecha)}${prox.hora ? ', ' + hhmm(prox.hora) : ''}</p>
+        <p class="proximo-titulo">${esc(prox.titulo)}</p>
+        ${prox.lugar ? `<p class="det">${esc(prox.lugar)}</p>` : ''}
+      </section>` : '';
+
+    const abiertos = d.pendientes.filter(p => !p.resuelto);
+    const hechos = d.pendientes.filter(p => p.resuelto);
+    const pendHTML = d.pendientes.length ? `<details class="pend" ${abiertos.length ? 'open' : ''}>
+        <summary><span>${abiertos.length ? 'Falta resolver' : 'Todo resuelto'}</span><span class="n ${abiertos.length ? '' : 'cero'}">${abiertos.length}</span></summary>
+        <ul>${abiertos.map(p => `<li>${esc(p.texto)}</li>`).join('')}${hechos.map(p => `<li class="ok">${esc(p.texto)}</li>`).join('')}</ul>
+      </details>` : '';
+
+    const diasHTML = dias.map(x => {
+      const lista = porDia[x.fecha] || [];
+      return `<article class="dia" id="dia-${x.fecha}">
+        <header class="dia-cab">
+          <div class="dia-num">${dt(x.fecha).getUTCDate()}</div>
+          <p class="dia-fecha">${semMes(x.fecha)}${x.fecha === hoy ? '<span class="hoy-marca">Hoy</span>' : ''}</p>
+          <p class="dia-ciudad">${esc(x.ciudad || x.titulo || '')}</p>
+          ${x.resumen ? `<p class="dia-resumen">${esc(x.resumen)}</p>` : ''}
+        </header>
+        ${lista.length ? `<ul class="eventos">${lista.map(evHTML).join('')}</ul>` : '<p class="dia-resumen">Sin actividades cargadas.</p>'}
+      </article>`;
+    }).join('');
+
+    const GRUPOS = [['alojamiento', 'Alojamiento'], ['transporte', 'Transporte'], ['vuelo', 'Vuelos']];
+    const conocidos = GRUPOS.map(g => g[0]);
+    const otros = [...new Set(d.reservas.map(r => r.categoria))].filter(c => !conocidos.includes(c)).map(c => [c, cap(c)]);
+    const resHTML = GRUPOS.concat(otros).map(([c, nombre]) => {
+      const items = d.reservas.filter(r => r.categoria === c);
+      return items.length ? `<h3>${esc(nombre)}</h3>${items.map(reservaHTML).join('')}` : '';
+    }).join('');
+
+    const genteHTML = d.personas.map(p => `<li><b>${esc(p.nombre)}</b>${esc(p.detalle)}</li>`).join('');
+
+    $('main').innerHTML = `
+      ${avisoTexto ? `<p class="aviso" role="status">${esc(avisoTexto)}</p>` : ''}
+      ${proxHTML}
+      ${pendHTML}
+      <h2>Día por día</h2>
+      <ul class="leyenda" aria-label="Referencias del borde">
+        <li><i style="background:var(--azul)"></i>Confirmado</li>
+        <li><i style="background:var(--oro)"></i>A confirmar</li>
+        <li><i style="background:var(--rojo)"></i>Sin resolver</li>
+      </ul>
+      ${diasHTML}
+      <h2>Reservas</h2>
+      ${resHTML}
+      <h2>Quiénes van</h2>
+      <ul class="gente">${genteHTML}</ul>`;
+  }
+
+  function errorHTML(msg) {
+    $('main').innerHTML = `<div class="error" role="alert">
+      <p><strong>No se pudo cargar el itinerario.</strong></p>
+      <p>Revisá la conexión y recargá la página.</p>
+      <p style="color:var(--gris);font-size:14px">${esc(msg)}</p></div>`;
+  }
+
+  (async () => {
+    try {
+      const datos = await cargar();
+      try { localStorage.setItem(CACHE, JSON.stringify({t: Date.now(), datos})); } catch (_) {}
+      render(datos, '');
+    } catch (err) {
+      let guardado = null;
+      try { guardado = JSON.parse(localStorage.getItem(CACHE)); } catch (_) {}
+      if (guardado && guardado.datos) {
+        const cuando = new Date(guardado.t).toLocaleString('es-AR', {dateStyle: 'medium', timeStyle: 'short'});
+        render(guardado.datos, `Sin conexión: se muestra la última versión guardada (${cuando}).`);
+      } else {
+        errorHTML(err.message);
+      }
+    }
+  })();
+})();
+</script>
+</body>
+</html>
