@@ -14,7 +14,7 @@
 <style>
 :root{
   --azul:#0C2B6E; --azul-2:#1B4CAE; --oro:#F5B800; --tinta:#0B1F4A;
-  --cielo:#E8EEF8; --papel:#FFFFFF; --rojo:#B3261E; --gris:#51607F; --linea:#CBD6EA;
+  --cielo:#E8EEF8; --papel:#FFFFFF; --pend:#6D3FB2; --gris:#51607F; --linea:#CBD6EA;
   --display:'Big Shoulders Display','Arial Narrow',Impact,sans-serif;
   --texto:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
 }
@@ -52,7 +52,7 @@ a{color:var(--azul-2)}
 h2{margin:40px 0 14px;font:800 32px/1 var(--display);color:var(--azul)}
 h3{margin:22px 0 8px;font-size:15px;font-weight:700;color:var(--gris)}
 .aviso{background:#FFF4CC;border:1px solid var(--oro);border-radius:8px;padding:10px 14px;margin:0 0 16px}
-.error{background:#fff;border:2px solid var(--rojo);border-radius:8px;padding:14px 16px}
+.error{background:#fff;border:2px solid var(--pend);border-radius:8px;padding:14px 16px}
 .error p{margin:0 0 6px}
 
 /* Lo que viene */
@@ -66,7 +66,7 @@ h3{margin:22px 0 8px;font-size:15px;font-weight:700;color:var(--gris)}
 .pend{background:var(--papel);border:1px solid var(--linea);border-radius:8px;margin-top:16px}
 .pend summary{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px;font-weight:700;cursor:pointer;list-style:none}
 .pend summary::-webkit-details-marker{display:none}
-.pend .n{background:var(--oro);color:var(--azul);border-radius:999px;padding:0 10px;font-size:14px;font-weight:700}
+.pend .n{background:var(--pend);color:#fff;border-radius:999px;padding:0 10px;font-size:14px;font-weight:700}
 .pend .n.cero{background:var(--azul-2)}
 .pend ul{margin:0;padding:0 16px 14px 36px}
 .pend li{margin:6px 0}
@@ -86,7 +86,7 @@ h3{margin:22px 0 8px;font-size:15px;font-weight:700;color:var(--gris)}
 .eventos{margin:0;padding:0;list-style:none;display:grid;gap:10px}
 .ev{display:grid;grid-template-columns:58px 1fr;gap:12px;background:var(--papel);border:1px solid var(--linea);border-left:5px solid var(--azul);border-radius:6px;padding:12px 14px}
 .ev[data-estado="a-confirmar"]{border-left-color:var(--oro)}
-.ev[data-estado="pendiente"]{border-left-color:var(--rojo)}
+.ev[data-estado="pendiente"]{border-left-color:var(--pend)}
 .hora{font-variant-numeric:tabular-nums;line-height:1.25}
 .hora b{display:block;font-size:17px}
 .hora span{display:block;color:var(--gris);font-size:13px}
@@ -99,7 +99,7 @@ h3{margin:22px 0 8px;font-size:15px;font-weight:700;color:var(--gris)}
 .ev-titulo a{color:inherit;text-decoration-color:var(--azul-2);text-underline-offset:3px}
 .ev-pie{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;margin:8px 0 0;font-size:14px;color:var(--gris)}
 .tag{padding:0 8px;border-radius:999px;font-size:12px;font-weight:700;line-height:20px;background:#FFF4CC;color:var(--tinta);border:1px solid var(--oro)}
-.tag.pendiente{background:#FBE3E1;border-color:var(--rojo);color:var(--rojo)}
+.tag.pendiente{background:#EEE6F8;border-color:var(--pend);color:var(--pend)}
 
 /* Reservas */
 .res{background:var(--papel);border:1px solid var(--linea);border-radius:8px;margin:0 0 8px}
@@ -290,7 +290,7 @@ footer p{margin:0;padding:18px 0}
       <ul class="leyenda" aria-label="Referencias del borde">
         <li><i style="background:var(--azul)"></i>Confirmado</li>
         <li><i style="background:var(--oro)"></i>A confirmar</li>
-        <li><i style="background:var(--rojo)"></i>Sin resolver</li>
+        <li><i style="background:var(--pend)"></i>Sin resolver</li>
       </ul>
       ${diasHTML}
       <h2>Reservas</h2>
