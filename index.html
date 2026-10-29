@@ -254,7 +254,7 @@ footer p{margin:0;padding:18px 0}
 
     const abiertos = d.pendientes.filter(p => !p.resuelto);
     const hechos = d.pendientes.filter(p => p.resuelto);
-    const pendHTML = d.pendientes.length ? `<details class="pend" ${abiertos.length ? 'open' : ''}>
+    const pendHTML = d.pendientes.length ? `<details class="pend">
         <summary><span>${abiertos.length ? 'Falta resolver' : 'Todo resuelto'}</span><span class="n ${abiertos.length ? '' : 'cero'}">${abiertos.length}</span></summary>
         <ul>${abiertos.map(p => `<li>${esc(p.texto)}</li>`).join('')}${hechos.map(p => `<li class="ok">${esc(p.texto)}</li>`).join('')}</ul>
       </details>` : '';
