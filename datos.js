@@ -79,7 +79,7 @@ window.DATOS = {
       lugar: "BOG → CTG",
       detalle: "Tarifa BASIC: sin equipaje de mano ni de bodega (0PC). Solo mochila. Sale de la Terminal 1.",
       personas: "Gabriel, Ayrton" },
-    { fecha: "2026-11-17", orden: 6, hora: null, hora_fin: null, fin_dia_siguiente: false, tipo: "hotel", estado: "confirmado",
+    { fecha: "2026-11-17", orden: 6, hora: "21:30", hora_fin: null, fin_dia_siguiente: false, tipo: "hotel", estado: "confirmado",
       mapa: "Hostal Badillo SV, Calle Segunda Badillo 36-58, San Diego, Cartagena",
       titulo: "Check-in Hostal Badillo SV",
       lugar: "Calle Segunda Badillo 36-58, San Diego, Cartagena",
