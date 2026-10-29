@@ -61,13 +61,13 @@ window.DATOS = {
     { fecha: "2026-11-17", orden: 2, hora: "06:31", hora_fin: "11:10", fin_dia_siguiente: false, tipo: "vuelo", estado: "confirmado",
       titulo: "Córdoba → Panamá · Copa CM169",
       lugar: "COR → PTY",
-      detalle: "Llegan a Panamá a las 11:10 (hora local). La conexión con el CM415 es de solo 38 minutos. Falta el comprobante de Ayrton.",
-      personas: "Gabriel" },
+      detalle: "Llegan a Panamá a las 11:10 (hora local). La conexión con el CM415 es de solo 38 minutos.",
+      personas: "Gabriel, Ayrton" },
     { fecha: "2026-11-17", orden: 3, hora: "11:48", hora_fin: "13:29", fin_dia_siguiente: false, tipo: "vuelo", estado: "confirmado",
       titulo: "Panamá → Bogotá · Copa CM415",
       lugar: "PTY → BOG",
       detalle: "Misma reserva que el tramo anterior.",
-      personas: "Gabriel" },
+      personas: "Gabriel, Ayrton" },
     { fecha: "2026-11-17", orden: 4, hora: "13:29", hora_fin: "19:35", fin_dia_siguiente: false, tipo: "vip", estado: "confirmado",
       titulo: "Escala en Bogotá (unas 6 h)",
       lugar: "Aeropuerto El Dorado",
@@ -188,8 +188,8 @@ window.DATOS = {
     { fecha: "2026-11-24", orden: 1, hora: "10:40", hora_fin: "12:31", fin_dia_siguiente: false, tipo: "vuelo", estado: "confirmado",
       titulo: "Bogotá → Panamá · Copa CM416",
       lugar: "BOG → PTY",
-      detalle: "Falta el comprobante de Ayrton.",
-      personas: "Gabriel" },
+      detalle: null,
+      personas: "Gabriel, Ayrton" },
     { fecha: "2026-11-24", orden: 2, hora: "12:31", hora_fin: "18:11", fin_dia_siguiente: false, tipo: "vip", estado: "confirmado",
       titulo: "Escala en Panamá (5 h 40)",
       lugar: "Aeropuerto de Tocumen",
@@ -199,7 +199,7 @@ window.DATOS = {
       titulo: "Panamá → Córdoba · Copa CM788",
       lugar: "PTY → COR",
       detalle: "Llegan a Córdoba a las 02:42 del miércoles 25/11.",
-      personas: "Gabriel" },
+      personas: "Gabriel, Ayrton" },
 
     { fecha: "2026-11-25", orden: 1, hora: "02:42", hora_fin: null, fin_dia_siguiente: false, tipo: "nota", estado: "pendiente",
       titulo: "Llegada a Córdoba",
@@ -250,20 +250,21 @@ window.DATOS = {
       notas: "Tarifa BASIC: sin equipaje de mano ni de bodega (0PC). Solo mochila." },
     { categoria: "vuelo", nombre: "Copa Airlines Córdoba ↔ Bogotá vía Panamá", ciudad: "Córdoba",
       direccion: null, telefono: null,
-      desde: "2026-11-17", hasta: "2026-11-24", personas: "Gabriel", monto: null,
+      desde: "2026-11-17", hasta: "2026-11-24", personas: "Gabriel, Ayrton", monto: null,
       pago: null, cancelacion: null,
-      notas: "Ida: CM169 y CM415 el 17/11. Vuelta: CM416 y CM788 el 24/11. Falta la reserva de Ayrton." }
+      notas: "Ida: CM169 y CM415 el 17/11. Vuelta: CM416 y CM788 el 24/11." }
   ],
 
   /* ---------- Lo que falta resolver (borrá la línea cuando se resuelva) ---------- */
   pendientes: [
-    { texto: "Falta el comprobante de Copa de Ayrton.", resuelto: false },
     { texto: "Faltan los vuelos de Leandro (llegada el 18, salida el 22).", resuelto: false },
     { texto: "Falta confirmar la cuarta persona: Cartagena y Barranquilla están reservadas para 4 adultos y viajan 3.", resuelto: false },
-    { texto: "Faltan las entradas de la final y el horario del partido.", resuelto: false },
+    { texto: "Faltan las entradas de la final, el horario del partido y cómo llegar al estadio.", resuelto: false },
     { texto: "Falta el transporte de Barranquilla a Santa Marta (22/11).", resuelto: false },
     { texto: "Falta el pasaje de Córdoba a Rosario (25/11, aterrizan 02:42).", resuelto: false },
     { texto: "Ojo con la conexión en Panamá del 17/11: solo 38 minutos entre CM169 y CM415.", resuelto: false },
+    { texto: "Falta consultar dónde dejar el equipaje en Santa Marta (23/11: check-out a las 11:00 y vuelo a las 21:00).", resuelto: false },
+    { texto: "Falta confirmar los pagos de los tres alojamientos: la reserva no es el pago (Soy Local cobra el total por adelantado).", resuelto: false },
     { texto: "Falta pagar el 50% del Hostal Badillo (entre el 12 y el 17/11; cancelación gratis hasta el 11/11).", resuelto: false },
     { texto: "Cancelación gratis del Hotel Intersuites hasta el 18/11 a las 23:59.", resuelto: false }
   ]
