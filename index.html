@@ -37,7 +37,7 @@ a{color:var(--azul-2)}
 .final-info{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 20px;padding-top:16px;padding-bottom:22px}
 .final-lugar{margin:0;color:#DCE6FA}
 .final-lugar strong{color:#fff;font-weight:600}
-.cuenta{margin:0;font:800 30px/1 var(--display);color:var(--oro)}
+.cuenta{margin:0;font:800 30px/1.05 var(--display);color:var(--oro);white-space:pre-line}
 
 /* Navegación por día */
 .dias-nav{position:sticky;top:0;z-index:10;background:var(--azul);border-top:1px solid #2B55A8}
@@ -229,7 +229,12 @@ footer p{margin:0;padding:18px 0}
     if (cfg.fecha_final) {
       $('final-fecha').textContent = larga(cfg.fecha_final);
       const dif = Math.round((dt(cfg.fecha_final) - dt(hoy)) / 86400000);
-      $('cuenta').textContent = dif > 1 ? `Faltan ${dif} días` : dif === 1 ? 'Mañana es la final' : dif === 0 ? 'Hoy es la final' : '';
+      const difIni = cfg.fecha_inicio ? Math.round((dt(cfg.fecha_inicio) - dt(hoy)) / 86400000) : 0;
+      if (difIni > 0 && dif > 1) {
+        $('cuenta').textContent = `${difIni === 1 ? 'Mañana salimos' : `Faltan ${difIni} días para salir`}\n${dif} días para la final`;
+      } else {
+        $('cuenta').textContent = dif > 1 ? `Faltan ${dif} días para la final` : dif === 1 ? 'Mañana es la final' : dif === 0 ? 'Hoy es la final' : '';
+      }
     }
 
     const eventos = d.eventos.slice().sort((a, b) =>

@@ -18,6 +18,7 @@ window.DATOS = {
   config: {
     titulo: "La Sudaca es mi obsesión",
     subtitulo: "Colombia, del 16 al 25 de noviembre de 2026",
+    fecha_inicio: "2026-11-16",   /* día de salida (cuenta regresiva) */
     fecha_final: "2026-11-21",
     final_titulo: "Boca vs Atlético Mineiro",
     final_lugar: "Estadio Metropolitano Roberto Meléndez, Barranquilla"
