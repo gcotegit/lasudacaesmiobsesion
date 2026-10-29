@@ -172,7 +172,7 @@ window.DATOS = {
     { fecha: "2026-11-23", orden: 1, hora: null, hora_fin: null, fin_dia_siguiente: false, tipo: "hotel", estado: "confirmado",
       titulo: "Check-out Soy Local Santa Marta",
       lugar: "Santa Marta",
-      detalle: "Hasta las 11:00. El vuelo sale a las 21:00: pensar dónde dejar el equipaje.",
+      detalle: "Hasta las 11:00. El vuelo sale a las 21:00: dejan el equipaje en el hotel.",
       personas: "Gabriel, Ayrton" },
     { fecha: "2026-11-23", orden: 2, hora: "21:00", hora_fin: "22:35", fin_dia_siguiente: false, tipo: "vuelo", estado: "confirmado",
       titulo: "Santa Marta → Bogotá · Avianca AV9237",
@@ -263,7 +263,6 @@ window.DATOS = {
     { texto: "Falta el transporte de Barranquilla a Santa Marta (22/11).", resuelto: false },
     { texto: "Falta el pasaje de Córdoba a Rosario (25/11, aterrizan 02:42).", resuelto: false },
     { texto: "Ojo con la conexión en Panamá del 17/11: solo 38 minutos entre CM169 y CM415.", resuelto: false },
-    { texto: "Falta consultar dónde dejar el equipaje en Santa Marta (23/11: check-out a las 11:00 y vuelo a las 21:00).", resuelto: false },
     { texto: "Falta confirmar los pagos de los tres alojamientos: la reserva no es el pago (Soy Local cobra el total por adelantado).", resuelto: false },
     { texto: "Falta pagar el 50% del Hostal Badillo (entre el 12 y el 17/11; cancelación gratis hasta el 11/11).", resuelto: false },
     { texto: "Cancelación gratis del Hotel Intersuites hasta el 18/11 a las 23:59.", resuelto: false }
