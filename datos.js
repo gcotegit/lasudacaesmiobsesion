@@ -158,7 +158,7 @@ window.DATOS = {
       lugar: "BOG → PTY",
       detalle: "Falta el comprobante de Ayrton.",
       personas: "Gabriel" },
-    { fecha: "2026-11-24", orden: 2, hora: "12:31", hora_fin: "18:11", fin_dia_siguiente: false, tipo: "vip", estado: "a confirmar",
+    { fecha: "2026-11-24", orden: 2, hora: "12:31", hora_fin: "18:11", fin_dia_siguiente: false, tipo: "vip", estado: "confirmado",
       titulo: "Escala en Panamá (5 h 40)",
       lugar: "Aeropuerto de Tocumen",
       detalle: "Si hay tiempo, van a la sala VIP Vista Corona (Visa).",
