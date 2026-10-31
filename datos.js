@@ -147,7 +147,7 @@ window.DATOS = {
       mapa: "Estadio Metropolitano Roberto Meléndez, Barranquilla",
       titulo: "Final Copa Sudamericana: Boca vs Atlético Mineiro",
       lugar: "Estadio Metropolitano Roberto Meléndez, Barranquilla",
-      detalle: "Horario confirmado por Conmebol (su cuenta oficial en X, 31/10): 17:30 en Barranquilla (19:30 en Argentina). Los hinchas de Boca van en el sector norte.",
+      detalle: "Horario confirmado por Conmebol (su cuenta oficial en X, 31/10): 17:30 en Barranquilla (19:30 en Argentina). Los hinchas de Boca van en el sector norte. Van al estadio en Uber o Vivi.",
       personas: "Gabriel, Ayrton, Leandro" },
 
     { fecha: "2026-11-22", orden: 1, hora: null, hora_fin: null, fin_dia_siguiente: false, tipo: "vuelo", estado: "a confirmar",
@@ -262,7 +262,6 @@ window.DATOS = {
   pendientes: [
     { texto: "Faltan los vuelos de Leandro (llegada el 18, salida el 22).", resuelto: false },
     { texto: "Falta confirmar la cuarta persona: Cartagena y Barranquilla están reservadas para 4 adultos y viajan 3.", resuelto: false },
-    { texto: "Falta cómo llegar al estadio.", resuelto: false },
     { texto: "Falta el transporte de Barranquilla a Santa Marta (22/11).", resuelto: false },
     { texto: "Falta el pasaje de Córdoba a Rosario (25/11, aterrizan 02:42).", resuelto: false },
     { texto: "Ojo con la conexión en Panamá del 17/11: solo 38 minutos entre CM169 y CM415.", resuelto: false },
