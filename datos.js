@@ -143,11 +143,12 @@ window.DATOS = {
       detalle: "Recepción de 11:00 a 23:00. Cuádruple con baño privado, 2 noches, desayuno incluido.",
       personas: "Gabriel, Ayrton, Leandro" },
 
-    { fecha: "2026-11-21", orden: 1, hora: "18:00", hora_fin: null, fin_dia_siguiente: false, tipo: "partido", estado: "a confirmar",
+    { fecha: "2026-11-21", orden: 1, hora: "17:30", hora_fin: null, fin_dia_siguiente: false, tipo: "partido", estado: "a confirmar",
       mapa: "Estadio Metropolitano Roberto Meléndez, Barranquilla",
       titulo: "Final Copa Sudamericana: Boca vs Atlético Mineiro",
       lugar: "Estadio Metropolitano Roberto Meléndez, Barranquilla",
-      detalle: "Conmebol confirmó el horario: 18:00 en Barranquilla (20:00 en Argentina). Antes se manejaba 17:00; lo atrasaron una hora por el calor. Los hinchas de Boca van en el sector norte. Entradas: Boca vende las que reciba y habrá venta neutral de Conmebol; falta que informen cómo.",
+      detalle: "Horario confirmado por Conmebol (su cuenta oficial en X, 31/10): 17:30 en Barranquilla (19:30 en Argentina). Los hinchas de Boca van en el sector norte. Entradas de hinchas de finalistas (categoría 3, USD 90): solo en sudamericana.eleventickets.com; falta que anuncien la fecha de venta. Conviene preregistrarse.",
+      enlace: "https://sudamericana.eleventickets.com", enlace_texto: "Entradas oficiales (Conmebol)",
       personas: "Gabriel, Ayrton, Leandro" },
 
     { fecha: "2026-11-22", orden: 1, hora: null, hora_fin: null, fin_dia_siguiente: false, tipo: "vuelo", estado: "a confirmar",
