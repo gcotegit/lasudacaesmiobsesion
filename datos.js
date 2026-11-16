@@ -92,9 +92,9 @@ window.DATOS = {
       personas: "Gabriel, Ayrton" },
 
     { fecha: "2026-11-18", orden: 1, hora: null, hora_fin: null, fin_dia_siguiente: false, tipo: "vuelo", estado: "a confirmar",
-      titulo: "Llega Leandro",
-      lugar: null,
-      detalle: "Falta su vuelo (ciudad y hora de llegada).",
+      titulo: "Llega Leandro a Cartagena",
+      lugar: "Cartagena",
+      detalle: "Falta su vuelo (día y hora de llegada).",
       personas: "Leandro" },
 
 
@@ -264,7 +264,7 @@ window.DATOS = {
 
   /* ---------- Lo que falta resolver (borrá la línea cuando se resuelva) ---------- */
   pendientes: [
-    { texto: "Faltan los vuelos de Leandro (llegada el 18, salida el 22).", resuelto: false },
+    { texto: "Faltan los vuelos de Leandro (día y hora de llegada a Cartagena, y salida el 22).", resuelto: false },
     { texto: "Falta confirmar la cuarta persona: Cartagena y Barranquilla están reservadas para 4 adultos y viajan 3.", resuelto: false },
     { texto: "Falta el transporte de Barranquilla a Santa Marta (22/11).", resuelto: false },
     { texto: "Falta el pasaje de Córdoba a Rosario (25/11, aterrizan 02:42).", resuelto: false },
