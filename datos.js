@@ -10,6 +10,7 @@
              estado = confirmado | a confirmar | pendiente
              fin_dia_siguiente = true si llega al otro día (muestra +1)
    - Los eventos se ordenan por fecha y por "orden".
+   - Pases de abordar: pases: [ { nombre: "Gabriel", archivo: "pases/xxx.pdf" } ] (botón por persona).
    - La página es pública: no cargues pasaportes, DNI ni códigos de reserva.
    ============================================================ */
 window.DATOS = {
@@ -78,7 +79,8 @@ window.DATOS = {
     { fecha: "2026-11-17", orden: 5, hora: "19:35", hora_fin: "21:05", fin_dia_siguiente: false, tipo: "vuelo", estado: "confirmado",
       titulo: "Bogotá → Cartagena · Avianca AV8556",
       lugar: "BOG → CTG",
-      detalle: "Tarifa BASIC: sin equipaje de mano ni de bodega (0PC). Solo mochila. Sale de la Terminal 1.",
+      detalle: "Tarifa BASIC: sin equipaje de mano ni de bodega (0PC). Solo mochila. Sale de la Terminal 1. Asientos: Gabriel 7A, Ayrton 8A. Cierre de puertas 19:15.",
+      pases: [ { nombre: "Gabriel", archivo: "pases/4RUzHKjI-VKzqcKZlwznDWIY.pdf" }, { nombre: "Ayrton", archivo: "pases/9qzfxHI_a-kivfT9JYaCuz3b.pdf" } ],
       personas: "Gabriel, Ayrton" },
     { fecha: "2026-11-17", orden: 6, hora: "21:30", hora_fin: null, fin_dia_siguiente: false, tipo: "hotel", estado: "confirmado",
       mapa: "Hostal Badillo SV, Calle Segunda Badillo 36-58, San Diego, Cartagena",

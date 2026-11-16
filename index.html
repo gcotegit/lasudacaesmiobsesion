@@ -97,6 +97,9 @@ h3{margin:22px 0 8px;font-size:15px;font-weight:700;color:var(--gris)}
 .ev-lugar{margin:2px 0 0;color:var(--gris);font-size:14px}
 .ev-detalle{margin:6px 0 0;font-size:15px}
 .ev-titulo a{color:inherit;text-decoration-color:var(--azul-2);text-underline-offset:3px}
+.pases{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;margin:8px 0 0;font-size:14px;color:var(--gris)}
+.pases a{display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 12px;border:1.5px solid var(--azul);border-radius:8px;color:var(--azul);font-weight:600;text-decoration:none}
+.pases a svg{width:16px;height:16px}
 .ev-pie{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;margin:8px 0 0;font-size:14px;color:var(--gris)}
 .tag{padding:0 8px;border-radius:999px;font-size:12px;font-weight:700;line-height:20px;background:#FFF4CC;color:var(--tinta);border:1px solid var(--oro)}
 .tag.pendiente{background:#EEE6F8;border-color:var(--pend);color:var(--pend)}
@@ -178,6 +181,10 @@ footer p{margin:0;padding:18px 0}
     ? `<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(e.mapa)}" target="_blank" rel="noopener">${esc(e.titulo)}</a>`
     : esc(e.titulo);
 
+  const pasesHTML = e => (Array.isArray(e.pases) && e.pases.length)
+    ? `<p class="pases"><span>Pase de abordar</span>${e.pases.filter(p => /^pases\/[\w.-]+\.pdf$/.test(p.archivo || '')).map(p => `<a href="${esc(p.archivo)}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>${esc(p.nombre)}</a>`).join('')}</p>`
+    : '';
+
   function evHTML(e) {
     const h = hhmm(e.hora), hf = hhmm(e.hora_fin);
     const tiempo = h
@@ -193,6 +200,7 @@ footer p{margin:0;padding:18px 0}
         <p class="ev-titulo">${ICONOS[tipo]}<span><span class="sr">${TIPOS[tipo]}: </span>${tituloHTML(e)}</span></p>
         ${e.lugar ? `<p class="ev-lugar">${esc(e.lugar)}</p>` : ''}
         ${e.detalle ? `<p class="ev-detalle">${esc(e.detalle)}</p>` : ''}
+        ${pasesHTML(e)}
         ${linkOk(e.enlace) ? `<p class="ev-detalle"><a href="${esc(e.enlace)}" target="_blank" rel="noopener">${esc(e.enlace_texto || 'Abrir enlace')}</a></p>` : ''}
         ${(e.personas || tag) ? `<p class="ev-pie">${e.personas ? `<span>${esc(e.personas)}</span>` : ''}${tag}</p>` : ''}
       </div>
