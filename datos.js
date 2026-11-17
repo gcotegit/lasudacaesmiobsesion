@@ -147,6 +147,13 @@ window.DATOS = {
       detalle: "Recepción de 11:00 a 23:00. Cuádruple con baño privado, 2 noches, desayuno incluido.",
       personas: "Gabriel, Ayrton, Leandro" },
 
+    { fecha: "2026-11-20", orden: 4, hora: "17:00", hora_fin: "00:00", fin_dia_siguiente: true, tipo: "partido", estado: "confirmado",
+      titulo: "Fiesta Sudamericana (fan fest)",
+      lugar: "Barranquilla",
+      detalle: "Entrada con QR personal e intransferible: horario de 17:00 a 00:00, último ingreso con QR a las 23:00. Sujeto a capacidad máxima. Falta el QR de Ayrton y Leandro.",
+      pases: [ { nombre: "QR de Gabriel", archivo: "pases/wPMQkFGBsxqAdrvh7Yf7ysRZ.png" } ],
+      personas: "Gabriel, Ayrton, Leandro" },
+
     { fecha: "2026-11-21", orden: 1, hora: "17:30", hora_fin: null, fin_dia_siguiente: false, tipo: "partido", estado: "a confirmar",
       mapa: "Estadio Metropolitano Roberto Meléndez, Barranquilla",
       titulo: "Final Copa Sudamericana: Boca vs Atlético Mineiro",
