@@ -148,8 +148,9 @@ window.DATOS = {
       personas: "Gabriel, Ayrton, Leandro" },
 
     { fecha: "2026-11-20", orden: 4, hora: "17:00", hora_fin: "00:00", fin_dia_siguiente: true, tipo: "partido", estado: "confirmado",
+      mapa: "Gran Malecón del Río, Barranquilla",
       titulo: "Fiesta Sudamericana (fan fest)",
-      lugar: "Barranquilla",
+      lugar: "Gran Malecón del Río, Barranquilla",
       detalle: "Entrada con QR personal e intransferible: horario de 17:00 a 00:00, último ingreso con QR a las 23:00. Sujeto a capacidad máxima. Falta el QR de Ayrton y Leandro.",
       pases: [ { nombre: "QR de Gabriel", archivo: "pases/wPMQkFGBsxqAdrvh7Yf7ysRZ.png" } ],
       personas: "Gabriel, Ayrton, Leandro" },
